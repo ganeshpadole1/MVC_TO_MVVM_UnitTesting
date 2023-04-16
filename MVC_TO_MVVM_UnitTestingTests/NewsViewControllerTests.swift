@@ -19,26 +19,24 @@ class NewsViewControllerTests: XCTestCase {
     }
 
     func test_canInit() throws {
-        let bundle = Bundle(for: NewsViewController.self)
-        let sb = UIStoryboard(name: "Main", bundle: bundle)
-        
-        let initialVC = sb.instantiateInitialViewController()
-        let navigation = try XCTUnwrap(initialVC as? UINavigationController)
-        
-       _ = try XCTUnwrap(navigation.topViewController as? NewsViewController)
+       
+       _ = try makeSUT()
     }
 
     func test_viewDidLoad_setsTitle() throws {
-        let bundle = Bundle(for: NewsViewController.self)
-        let sb = UIStoryboard(name: "Main", bundle: bundle)
-        
-        let initialVC = sb.instantiateInitialViewController()
-        let navigation = try XCTUnwrap(initialVC as? UINavigationController)
-        
-        let sut = try XCTUnwrap(navigation.topViewController as? NewsViewController)
+        let sut = try makeSUT()
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.title, "News")
     }
 
+    private func makeSUT() throws -> NewsViewController {
+        let bundle = Bundle(for: NewsViewController.self)
+        let sb = UIStoryboard(name: "Main", bundle: bundle)
+        
+        let initialVC = sb.instantiateInitialViewController()
+        let navigation = try XCTUnwrap(initialVC as? UINavigationController)
+        
+        return try XCTUnwrap(navigation.topViewController as? NewsViewController)
+    }
 }
