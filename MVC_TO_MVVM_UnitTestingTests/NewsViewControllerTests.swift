@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import MVC_TO_MVVM_UnitTesting
 
 class NewsViewControllerTests: XCTestCase {
 
@@ -17,6 +18,16 @@ class NewsViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func test_canInit() throws {
+        let bundle = Bundle(for: NewsViewController.self)
+        let sb = UIStoryboard(name: "Main", bundle: bundle)
+        
+        let initialVC = sb.instantiateInitialViewController()
+        let navigation = try XCTUnwrap(initialVC as? UINavigationController)
+        
+        let sut = try XCTUnwrap(navigation.topViewController as? NewsViewController)
+    }
 
+    
 
 }
