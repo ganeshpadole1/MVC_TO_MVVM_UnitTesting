@@ -19,11 +19,16 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "News"
         navigationController?.navigationBar.prefersLargeTitles = true
-       
-        fetchArticles()
+        
+        self.configureTableView()
+        self.fetchArticles()
+    }
+    
+    func configureTableView() {
+        tableView.dataSource = self
     }
     
     private func fetchArticles() {
@@ -34,7 +39,7 @@ class NewsViewController: UIViewController {
                     if let articles = articles {
                         self?.articles = articles
                     }
-                   
+                    
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
