@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIConstant {
-    static let APIURL = "https://newsdata.io/api/1/news?apikey=pub_20588ddfa15e4e1db1e23efb1d65c08ef38ba"
+    static let APIURL = "https://newsdata.io/api/1/news?apikey=pub_20588ddfa15e4e1db1e23efb1d65c08ef38ba&language=en"
 }
 
 enum NetworkError: Error {

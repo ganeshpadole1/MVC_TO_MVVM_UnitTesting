@@ -11,7 +11,6 @@ class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let persons = ["Ganesh", "Vijay", "Sameer"]
     var articles = [Article]() {
         didSet {
             tableView.reloadData()
@@ -48,14 +47,14 @@ class NewsViewController: UIViewController {
 extension NewsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persons.count
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! ArticleTableViewCell
+        let article = articles[indexPath.row]
+        cell.setup(article)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = persons[indexPath.row]
-        
-        return cell!
+        return cell
     }
 }
