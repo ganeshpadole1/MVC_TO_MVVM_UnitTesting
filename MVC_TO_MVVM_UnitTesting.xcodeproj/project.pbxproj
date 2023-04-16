@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F20A15229EC0FCB00418814 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15129EC0FCB00418814 /* Article.swift */; };
 		1F20A15529EC10F000418814 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15429EC10F000418814 /* NetworkService.swift */; };
-		1F20A15729EC25EB00418814 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15629EC25EB00418814 /* ArticleTableViewCell.swift */; };
+		1F20A15729EC25EB00418814 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15629EC25EB00418814 /* NewsTableViewCell.swift */; };
+		1F20A15F29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15E29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.swift */; };
+		1F20A16629EC4CD900418814 /* NewsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A16529EC4CD900418814 /* NewsViewControllerTests.swift */; };
 		1F36E03F29EC03E20006DA22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36E03E29EC03E20006DA22 /* AppDelegate.swift */; };
 		1F36E04129EC03E20006DA22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36E04029EC03E20006DA22 /* SceneDelegate.swift */; };
 		1F36E04629EC03E20006DA22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F36E04429EC03E20006DA22 /* Main.storyboard */; };
@@ -18,10 +20,23 @@
 		1F36E05629EC09CF0006DA22 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36E05529EC09CF0006DA22 /* NewsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1F20A16029EC4C7900418814 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F36E03329EC03E20006DA22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F36E03A29EC03E20006DA22;
+			remoteInfo = MVC_TO_MVVM_UnitTesting;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1F20A15129EC0FCB00418814 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		1F20A15429EC10F000418814 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		1F20A15629EC25EB00418814 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		1F20A15629EC25EB00418814 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		1F20A15C29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVC_TO_MVVM_UnitTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F20A15E29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVC_TO_MVVM_UnitTestingTests.swift; sourceTree = "<group>"; };
+		1F20A16529EC4CD900418814 /* NewsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerTests.swift; sourceTree = "<group>"; };
 		1F36E03B29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVC_TO_MVVM_UnitTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F36E03E29EC03E20006DA22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F36E04029EC03E20006DA22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +48,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F20A15929EC4C7900418814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1F36E03829EC03E20006DA22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,10 +73,20 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		1F20A15D29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F20A15E29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.swift */,
+				1F20A16529EC4CD900418814 /* NewsViewControllerTests.swift */,
+			);
+			path = MVC_TO_MVVM_UnitTestingTests;
+			sourceTree = "<group>";
+		};
 		1F36E03229EC03E20006DA22 = {
 			isa = PBXGroup;
 			children = (
 				1F36E03D29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting */,
+				1F20A15D29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests */,
 				1F36E03C29EC03E20006DA22 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1F36E03B29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting.app */,
+				1F20A15C29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1F36E05529EC09CF0006DA22 /* NewsViewController.swift */,
-				1F20A15629EC25EB00418814 /* ArticleTableViewCell.swift */,
+				1F20A15629EC25EB00418814 /* NewsTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,6 +144,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1F20A15B29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F20A16229EC4C7900418814 /* Build configuration list for PBXNativeTarget "MVC_TO_MVVM_UnitTestingTests" */;
+			buildPhases = (
+				1F20A15829EC4C7900418814 /* Sources */,
+				1F20A15929EC4C7900418814 /* Frameworks */,
+				1F20A15A29EC4C7900418814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F20A16129EC4C7900418814 /* PBXTargetDependency */,
+			);
+			name = MVC_TO_MVVM_UnitTestingTests;
+			productName = MVC_TO_MVVM_UnitTestingTests;
+			productReference = 1F20A15C29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1F36E03A29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F36E04F29EC03E60006DA22 /* Build configuration list for PBXNativeTarget "MVC_TO_MVVM_UnitTesting" */;
@@ -138,6 +189,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					1F20A15B29EC4C7900418814 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1F36E03A29EC03E20006DA22;
+					};
 					1F36E03A29EC03E20006DA22 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -157,11 +212,19 @@
 			projectRoot = "";
 			targets = (
 				1F36E03A29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting */,
+				1F20A15B29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F20A15A29EC4C7900418814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1F36E03929EC03E20006DA22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +238,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F20A15829EC4C7900418814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F20A15F29EC4C7900418814 /* MVC_TO_MVVM_UnitTestingTests.swift in Sources */,
+				1F20A16629EC4CD900418814 /* NewsViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1F36E03729EC03E20006DA22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,12 +255,20 @@
 				1F20A15229EC0FCB00418814 /* Article.swift in Sources */,
 				1F36E05629EC09CF0006DA22 /* NewsViewController.swift in Sources */,
 				1F36E03F29EC03E20006DA22 /* AppDelegate.swift in Sources */,
-				1F20A15729EC25EB00418814 /* ArticleTableViewCell.swift in Sources */,
+				1F20A15729EC25EB00418814 /* NewsTableViewCell.swift in Sources */,
 				1F36E04129EC03E20006DA22 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F20A16129EC4C7900418814 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F36E03A29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting */;
+			targetProxy = 1F20A16029EC4C7900418814 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1F36E04429EC03E20006DA22 /* Main.storyboard */ = {
@@ -210,6 +290,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1F20A16329EC4C7900418814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5828EJ5HNE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ganesh.MVC-TO-MVVM-UnitTestingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVC_TO_MVVM_UnitTesting.app/MVC_TO_MVVM_UnitTesting";
+			};
+			name = Debug;
+		};
+		1F20A16429EC4C7900418814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5828EJ5HNE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ganesh.MVC-TO-MVVM-UnitTestingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVC_TO_MVVM_UnitTesting.app/MVC_TO_MVVM_UnitTesting";
+			};
+			name = Release;
+		};
 		1F36E04D29EC03E60006DA22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -383,6 +499,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F20A16229EC4C7900418814 /* Build configuration list for PBXNativeTarget "MVC_TO_MVVM_UnitTestingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F20A16329EC4C7900418814 /* Debug */,
+				1F20A16429EC4C7900418814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1F36E03629EC03E20006DA22 /* Build configuration list for PBXProject "MVC_TO_MVVM_UnitTesting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
