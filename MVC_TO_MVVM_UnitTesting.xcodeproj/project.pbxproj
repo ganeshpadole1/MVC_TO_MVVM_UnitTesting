@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F20A15229EC0FCB00418814 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15129EC0FCB00418814 /* Article.swift */; };
+		1F20A15529EC10F000418814 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20A15429EC10F000418814 /* NetworkService.swift */; };
 		1F36E03F29EC03E20006DA22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36E03E29EC03E20006DA22 /* AppDelegate.swift */; };
 		1F36E04129EC03E20006DA22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36E04029EC03E20006DA22 /* SceneDelegate.swift */; };
 		1F36E04629EC03E20006DA22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F36E04429EC03E20006DA22 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		1F20A15129EC0FCB00418814 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		1F20A15429EC10F000418814 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1F36E03B29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVC_TO_MVVM_UnitTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F36E03E29EC03E20006DA22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F36E04029EC03E20006DA22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F20A15329EC10DD00418814 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				1F20A15429EC10F000418814 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
 		1F36E03229EC03E20006DA22 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		1F36E03D29EC03E20006DA22 /* MVC_TO_MVVM_UnitTesting */ = {
 			isa = PBXGroup;
 			children = (
+				1F20A15329EC10DD00418814 /* NetworkService */,
 				1F36E05429EC09930006DA22 /* Controller */,
 				1F36E05329EC09820006DA22 /* View */,
 				1F36E05229EC097C0006DA22 /* Model */,
@@ -165,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F20A15529EC10F000418814 /* NetworkService.swift in Sources */,
 				1F20A15229EC0FCB00418814 /* Article.swift in Sources */,
 				1F36E05629EC09CF0006DA22 /* NewsViewController.swift in Sources */,
 				1F36E03F29EC03E20006DA22 /* AppDelegate.swift in Sources */,

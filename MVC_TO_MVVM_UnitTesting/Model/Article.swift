@@ -6,12 +6,25 @@
 //
 
 import Foundation
+//
+//struct ArticleList: Decodable {
+//    let results: [Article]
+//}
+//
+//struct Article: Decodable {
+//    let title: String
+//    let description: String
+//}
 
-struct Articles {
-    let articles: [Article]
+
+// MARK: - Welcome
+struct ArticleList: Decodable {
+    let results: [Article]
 }
 
+// MARK: - Result
 struct Article: Decodable {
-    let author: String
     let title: String
+    let description: String?
 }
+
