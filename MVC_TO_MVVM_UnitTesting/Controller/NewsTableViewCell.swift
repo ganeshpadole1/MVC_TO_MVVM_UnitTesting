@@ -23,8 +23,8 @@ class NewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(_ article: Article) {
-        titleLabel.text = article.title
-        descriptionLabel.text = article.description ?? "No Description available"
+    func setup(_ articleVM: ArticleViewModel) {
+        titleLabel.text = articleVM.title
+        descriptionLabel.text = articleVM.description
     }
 }

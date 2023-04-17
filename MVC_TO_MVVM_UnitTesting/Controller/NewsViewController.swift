@@ -7,6 +7,16 @@
 
 import UIKit
 
+class GetArticleAdapter {
+    static func getArticles(completion: (@escaping (Result<[Article]?, NetworkError>) -> Void)) {
+        NetworkService.shared.getArticles { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+}
+
 typealias GetArticles = (@escaping (Result<[Article]?, NetworkError>) -> Void) -> Void
 
 class NewsViewController: UIViewController {
@@ -14,15 +24,10 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // As tests are running in background so
-    var getArticles: GetArticles = { completion in
-        NetworkService.shared.getArticles { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
-    }
     
-    var articles = [Article]() {
+    var getArticles: GetArticles = GetArticleAdapter.getArticles
+    
+    private var articles = [ArticleViewModel]() {
         didSet {
             tableView.reloadData()
         }
@@ -46,12 +51,9 @@ class NewsViewController: UIViewController {
         getArticles { result in
             switch result {
             case .success(let articles):
-                    if let articles = articles {
-                        self.articles = articles
-                    }
-                    
-                    self.tableView.reloadData()
-               
+                if let articles = articles {
+                    self.articles = articles.map(ArticleViewModel.init)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -67,14 +69,27 @@ extension NewsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! NewsTableViewCell
-        let article = articles[indexPath.row]
-        cell.setup(article)
+        let vm = articles[indexPath.row]
         
-        if article.title.starts(with: "K") {
+        cell.setup(vm)
+        
+        if vm.isHighlighted {
             cell.backgroundColor = .magenta
         } else {
             cell.backgroundColor = .white
         }
         return cell
+    }
+}
+
+struct ArticleViewModel {
+    let title: String
+    let description: String
+    let isHighlighted: Bool
+    
+    init(article: Article) {
+        title = article.title
+        description = article.description ?? "No Description available"
+        isHighlighted = article.title.starts(with: "K")
     }
 }
