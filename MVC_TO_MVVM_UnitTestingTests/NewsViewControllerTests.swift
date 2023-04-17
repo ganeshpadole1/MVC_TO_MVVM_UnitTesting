@@ -41,7 +41,7 @@ class NewsViewControllerTests: XCTestCase {
         let sut = try makeSUT()
         sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
+        XCTAssertEqual(sut.numberOfArticles(), 0)
     }
     
     func test_viewDidLoad_renderArticlesFromAPI() throws{
@@ -55,7 +55,7 @@ class NewsViewControllerTests: XCTestCase {
         }
         
         sut.loadViewIfNeeded()
-        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 3)
+        XCTAssertEqual(sut.numberOfArticles(), 3)
         
     }
     
@@ -77,4 +77,12 @@ private class NetworkServiceStub{
     func getArticles(completion: @escaping (Result<[Article]?, NetworkError>) -> Void) {
         
     }
+}
+
+private extension NewsViewController {
+    func numberOfArticles() -> Int {
+        tableView.numberOfRows(inSection: articleSections)
+    }
+    
+    private var articleSections: Int {0}
 }
