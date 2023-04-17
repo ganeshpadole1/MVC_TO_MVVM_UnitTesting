@@ -48,15 +48,20 @@ class NewsViewControllerTests: XCTestCase {
         let sut = try makeSUT()
         sut.getArticles = { completion in
             completion(.success(
-                [Article(title: "Title 1", description: "description 1"),
-                 Article(title: "Title 2", description: "description 2"),
-                 Article(title: "Title 3", description: "description 3"),
+                [self.getArtilcle(title: "Title 1", description: "description 1"),
+                 self.getArtilcle(title: "Title 2", description: "description 2"),
+                 self.getArtilcle(title: "Title 3", description: "description 3"),
                 ]))
         }
         
         sut.loadViewIfNeeded()
         XCTAssertEqual(sut.numberOfArticles(), 3)
         
+        XCTAssertEqual(sut.title(atRow: 0), "Title 1")
+        XCTAssertEqual(sut.description(atRow: 0), "description 1")
+        
+        XCTAssertEqual(sut.title(atRow: 1), "Title 2")
+        XCTAssertEqual(sut.description(atRow: 1), "description 2")
     }
     
     private func makeSUT() throws -> NewsViewController {
@@ -69,6 +74,10 @@ class NewsViewControllerTests: XCTestCase {
         let sut = try XCTUnwrap(navigation.topViewController as? NewsViewController)
         sut.getArticles = {_ in }
         return sut
+    }
+    
+   private func getArtilcle(title: String, description: String) -> Article {
+        Article(title: title, description: description)
     }
 }
 
@@ -85,4 +94,19 @@ private extension NewsViewController {
     }
     
     private var articleSections: Int {0}
+    
+    func title(atRow row: Int) -> String? {
+        articleCell(atRow: row)?.titleLabel.text
+    }
+    
+    func description(atRow row: Int) -> String? {
+        articleCell(atRow: row)?.descriptionLabel.text
+    }
+    
+    func articleCell(atRow row: Int) -> NewsTableViewCell? {
+        let ds = tableView.dataSource
+        let indexPath = IndexPath(row: row, section: articleSections)
+        let cell = ds?.tableView(tableView, cellForRowAt: indexPath) as? NewsTableViewCell
+        return cell
+    }
 }
