@@ -64,6 +64,25 @@ class NewsViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.description(atRow: 1), "description 2")
     }
     
+    
+    func test_viewDidLoad_WhenTitleStartWith_K_highlightsCell() throws{
+        let sut = try makeSUT()
+        sut.getArticles = { completion in
+            completion(.success(
+                [self.getArtilcle(title: "K Title 1", description: "description 1"),
+                 self.getArtilcle(title: "Title 2", description: "description 2"),
+                 self.getArtilcle(title: "Title K 3", description: "description 3"),
+                ]))
+        }
+        
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(sut.numberOfArticles(), 3)
+        
+        XCTAssertTrue(sut.isHighlighted(atRow: 0), "K Title 1")
+        XCTAssertTrue(sut.isNotHighlighted(atRow: 1), "Title 2")
+        XCTAssertTrue(sut.isNotHighlighted(atRow: 2), "Title K 3")
+    }
+    
     private func makeSUT() throws -> NewsViewController {
         let bundle = Bundle(for: NewsViewController.self)
         let sb = UIStoryboard(name: "Main", bundle: bundle)
@@ -97,6 +116,14 @@ private extension NewsViewController {
     
     func title(atRow row: Int) -> String? {
         articleCell(atRow: row)?.titleLabel.text
+    }
+    
+    func isHighlighted(atRow row: Int) -> Bool {
+        articleCell(atRow: row)?.backgroundColor == .magenta
+    }
+    
+    func isNotHighlighted(atRow row: Int) -> Bool {
+        articleCell(atRow: row)?.backgroundColor == .white
     }
     
     func description(atRow row: Int) -> String? {

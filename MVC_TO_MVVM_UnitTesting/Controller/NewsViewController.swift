@@ -70,7 +70,7 @@ extension NewsViewController: UITableViewDataSource {
         let article = articles[indexPath.row]
         cell.setup(article)
         
-        if article.title.contains("K") {
+        if article.title.starts(with: "K") {
             cell.backgroundColor = .magenta
         } else {
             cell.backgroundColor = .white
