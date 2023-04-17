@@ -81,15 +81,3 @@ extension NewsViewController: UITableViewDataSource {
         return cell
     }
 }
-
-struct ArticleViewModel {
-    let title: String
-    let description: String
-    let isHighlighted: Bool
-    
-    init(article: Article) {
-        title = article.title
-        description = article.description ?? "No Description available"
-        isHighlighted = article.title.starts(with: "K")
-    }
-}
