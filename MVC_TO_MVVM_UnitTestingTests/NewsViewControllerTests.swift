@@ -37,6 +37,28 @@ class NewsViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.tableView.dataSource, "data source")
     }
     
+    func test_viewDidLoad_initialState() throws {
+        let sut = try makeSUT()
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
+    }
+    
+    func test_viewDidLoad_renderArticlesFromAPI() throws{
+        let sut = try makeSUT()
+        sut.getArticles = { completion in
+            completion(.success(
+                [Article(title: "Title 1", description: "description 1"),
+                 Article(title: "Title 2", description: "description 2"),
+                 Article(title: "Title 3", description: "description 3"),
+                ]))
+        }
+        
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 3)
+        
+    }
+    
     private func makeSUT() throws -> NewsViewController {
         let bundle = Bundle(for: NewsViewController.self)
         let sb = UIStoryboard(name: "Main", bundle: bundle)
@@ -44,6 +66,15 @@ class NewsViewControllerTests: XCTestCase {
         let initialVC = sb.instantiateInitialViewController()
         let navigation = try XCTUnwrap(initialVC as? UINavigationController)
         
-        return try XCTUnwrap(navigation.topViewController as? NewsViewController)
+        let sut = try XCTUnwrap(navigation.topViewController as? NewsViewController)
+        sut.getArticles = {_ in }
+        return sut
+    }
+}
+
+private class NetworkServiceStub{
+    
+    func getArticles(completion: @escaping (Result<[Article]?, NetworkError>) -> Void) {
+        
     }
 }

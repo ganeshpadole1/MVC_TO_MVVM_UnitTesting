@@ -17,12 +17,12 @@ enum NetworkError: Error {
     case decodingError
 }
 
+
 class NetworkService {
     
     static let shared = NetworkService()
-    
     private init() {}
-    
+        
     func getArticles(completion: @escaping (Result<[Article]?, NetworkError>) -> Void) {
         
         guard let url = URL(string: APIConstant.APIURL) else {

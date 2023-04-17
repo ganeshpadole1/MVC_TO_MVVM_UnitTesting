@@ -7,9 +7,20 @@
 
 import UIKit
 
+typealias GetArticles = (@escaping (Result<[Article]?, NetworkError>) -> Void) -> Void
+
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    // As tests are running in background so
+    var getArticles: GetArticles = { completion in
+        NetworkService.shared.getArticles { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
     
     var articles = [Article]() {
         didSet {
@@ -32,16 +43,15 @@ class NewsViewController: UIViewController {
     }
     
     private func fetchArticles() {
-        NetworkService.shared.getArticles {[weak self] result in
+        getArticles { result in
             switch result {
             case .success(let articles):
-                DispatchQueue.main.async {
                     if let articles = articles {
-                        self?.articles = articles
+                        self.articles = articles
                     }
                     
-                    self?.tableView.reloadData()
-                }
+                    self.tableView.reloadData()
+               
             case .failure(let error):
                 print(error.localizedDescription)
             }
